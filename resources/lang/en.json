@@ -1,0 +1,17 @@
+{
+    "welcome": "Welcome to our application!",
+    "login": "Login",
+    "register": "Register",
+    "current_episodes": "Current episodes - hot & popular",
+    "exclusive_series": "Exclusive series",
+    "discover_professors": "Discover professors",
+    "home": "Home",
+    "categories": "Categories",
+    "new_releases": "New Releases",
+    "all_categories": "All Categories",
+    "trending": "Trending",
+    "top_rated": "Top Rated",
+    "subscribe": "Subscribe",
+    "watch_trailer": "Watch Trailer",
+    "play_now": "Play Now"
+}
