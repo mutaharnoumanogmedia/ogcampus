@@ -9,24 +9,7 @@ use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
-    /**
-     * Show a list of all creators.
-     */
-    public function creators()
-    {
-        $creators = User::role('creator')->with("creator_profiles")->orderBy('name')->get();
-        return view('website.creators', compact('creators'));
-    }
 
-    /**
-     * Show details for a specific creator.
-     */
-    public function creatorDetail($id)
-    {
-        $creator = User::role('creator')->with("creator_profiles")->where('id', $id)->firstOrFail();
-            $series = Series::where('creator_id', $creator->id)->get();
-            return view('website.creator-detail', compact('creator', 'series', 'id'));
-    }
 
     /**
      * Display the homepage
@@ -179,5 +162,25 @@ class WebsiteController extends Controller
         $category = \App\Models\Category::where('slug', $slug)->firstOrFail();
         $movies = $category->movies()->orderBy('title')->get();
         return view('website.browse_category', compact('category', 'movies'));
+    }
+
+
+    /**
+     * Show a list of all creators.
+     */
+    public function creators()
+    {
+        $creators = User::role('creator')->with("creatorProfile")->orderBy('name')->get();
+        return view('website.creators', compact('creators'));
+    }
+
+    /**
+     * Show details for a specific creator.
+     */
+    public function creatorDetail($id)
+    {
+        $creator = User::role('creator')->with("creatorProfile", "createdSeries")->where('id', $id)->firstOrFail();
+
+        return view('website.creator-detail', compact('creator',   'id'));
     }
 }

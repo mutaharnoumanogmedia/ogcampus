@@ -111,4 +111,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(CreatorProfile::class);
     }
+
+    public function createdSeries()
+    {
+        return $this->hasMany(Series::class, 'creator_id');
+    }
 }

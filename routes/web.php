@@ -1,6 +1,3 @@
-// Creators routes
-Route::get('/creators', [WebsiteController::class, 'creators'])->name('website.creators');
-Route::get('/creators/{id}', [WebsiteController::class, 'creatorDetail'])->name('website.creator.detail');
 <?php
 
 use App\Http\Controllers\ProfileController;
@@ -40,6 +37,9 @@ Route::get('/seasons/{season_slug}/episodes/{episode_slug}', [WebsiteController:
 
 Route::get('/browse/categories', [WebsiteController::class, 'browseCategories'])->name('browse.categories');
 Route::get('/browse/category/{slug}', [WebsiteController::class, 'browseCategory'])->name('browse.category');
+
+Route::get('/creators', [WebsiteController::class, 'creators'])->name('website.creators');
+Route::get('/creators/{id}', [WebsiteController::class, 'creatorDetail'])->name('website.creator.detail');
 
 
 

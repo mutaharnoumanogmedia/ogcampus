@@ -174,7 +174,7 @@
                                 <div class="iq-watching-block">
                                     <div class="block-images position-relative">
                                         <div class="iq-image-box overly-images">
-                                            <a href="./movie-detail.html" class="d-block">
+                                            <a href="{{ route('website.series.show', ['slug' => $series->slug]) }}" class="d-block">
                                                 <img src="{{ $episode->thumbnail_path }}" alt="movie-card"
                                                     class="w-100 d-block border-0 rounded-3 continue-image" />
                                             </a>
@@ -246,7 +246,7 @@
                                     <div class="iq-card card-hover">
                                         <div class="block-images position-relative w-100">
                                             <div class="img-box w-100">
-                                                <a href="./movie-detail.html"
+                                                <a href="{{ route('website.series.show', ['slug' => $series->slug]) }}"
                                                     class="position-relative top-0 bottom-0 start-0 end-0">
                                                     <img src="{{ $series->poster_path }}" alt="movie-card"
                                                         class="img-fluid object-cover w-100 d-block border-0 rounded-3" />
@@ -319,8 +319,8 @@
                     <h4 class="main-title text-capitalize mb-0 fw-medium">
                         {{ __('discover_professors') }}
                     </h4>
-                    <a href="./view-all-movie.html"
-                        class="text-primary iq-view-all text-decoration-none flex-none">View All</a>
+                    <a href="{{ route('website.creators') }}"
+                        class="text-primary iq-view-all text-decoration-none flex-none">{{__("view_all")}}</a>
                 </div>
                 <div class="card-style-slider">
                     <div class="position-relative swiper swiper-card" data-slide="5" data-laptop="3" data-tab="3"
@@ -332,7 +332,7 @@
                                     <div class="iq-card card-hover landscape-card-hover">
                                         <div class="block-images position-relative w-100">
                                             <div class="img-box w-100">
-                                                <a href="./movie-detail.html"
+                                                <a href="{{ route('website.creator.detail', $creator->id) }}"
                                                     class="position-relative top-0 bottom-0 start-0 end-0">
                                                     <img src="{{ $creator->creatorProfile->profile_image ?? asset('frontend/assets/images/avatars/avatar-15.png') }}"
                                                         alt="movie-card"
@@ -343,7 +343,7 @@
                                                 <ul
                                                     class="genres-list p-0 mb-2 d-flex align-items-center flex-wrap list-inline">
                                                     <li class="fw-semi-bold">
-                                                        <a href="./view-all-movie.html" tabindex="0"
+                                                        <a href="{{ route('website.creator.detail', $creator->id) }}" tabindex="0"
                                                             class="font-size-14">
                                                             {{ $creator->creatorProfile->experties ?? ' ' }}
                                                         </a>
@@ -352,13 +352,13 @@
                                                 <div class="cart-content">
                                                     <div class="content-left">
                                                         <h5 class="iq-title text-capitalize mb-0">
-                                                            <a href="./movie-detail.html">{{ $creator->name }}</a>
+                                                            <a href="{{ route('website.creator.detail', $creator->id) }}">{{ $creator->name }}</a>
                                                         </h5>
                                                     </div>
                                                 </div>
                                                 <div
                                                     class="d-flex align-items-center justify-content-center gap-2 mt-3">
-                                                    <a href="./watchlist-detail.html"
+                                                    <a href="{{ route('website.creator.detail', $creator->id) }}"
                                                         class="d-flex align-items-center justify-content-center flex-shrink-0 border-0 add-to-wishlist-btn btn btn-secondary"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         data-bs-custom-class="custom-tooltip"
@@ -366,7 +366,7 @@
                                                         <i class="ph ph-plus font-size-18"></i>
                                                     </a>
                                                     <div class="iq-play-button iq-button">
-                                                        <a href="./movie-detail.html"
+                                                        <a href="{{ route('website.creator.detail', $creator->id) }}"
                                                             class="btn btn-primary w-100">Play
                                                             Now</a>
                                                     </div>
@@ -464,7 +464,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 mt-0 mt-lg-5 mt-xl-0">
                     <div class="parallax-img">
-                        <a href="./movie-detail.html">
+                        <a href="{{ route('website.series.show', ['slug' => $series->slug]) }}">
                             <img src="{{ asset('frontend') }}/assets/images/pages/Movieof-the-year.webp"
                                 class="img-fluid w-100" loading="lazy" alt="bailey" />
                         </a>

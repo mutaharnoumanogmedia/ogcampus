@@ -433,38 +433,36 @@
                                             @if ($season->episodes && count($season->episodes))
                                                 <div class="row g-3">
                                                     @foreach ($season->episodes as $episode)
-                                                        <div class="col-12 col-md-6 col-lg-4">
-                                                            <div
-                                                                class="card h-100 border-0 shadow-sm episode-card position-relative">
-                                                                <a href="{{ route('website.seasons.episodes.show', [
-                                                                    'season_slug' => $season->slug,
-                                                                    'episode_slug' => $episode->slug,
-                                                                ]) }}"
-                                                                    class="stretched-link">
-                                                                    <div class="episode-thumbnail"
-                                                                        style="background: url('{{ $episode->thumbnail_path }}') center center/cover no-repeat; height: 200px; border-radius: .5rem .5rem 0 0;">
+                                                        <div class="col-12 col-md-6 col-lg-3">
+                                                            <div class="card border-0 shadow-sm episode-card position-relative"
+                                                                style="background: url('{{ $episode->thumbnail_path }}') center center/cover no-repeat; height:  350px ; border-radius: .5rem .5rem  ;">
+                                                                <a
+                                                                    href="{{ route('website.seasons.episodes.show', [
+                                                                        'season_slug' => $season->slug,
+                                                                        'episode_slug' => $episode->slug,
+                                                                    ]) }}">
+
+                                                                    <div class="card-body d-flex flex-column justify-content-end p-3"
+                                                                        style="background: linear-gradient(to top, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.1) 100%); border-radius: .5rem .5rem;">
+                                                                        <div
+                                                                            class="d-flex align-items-center justify-content-between">
+                                                                            <div>
+                                                                                <span class="fw-medium text-white">Episode
+                                                                                    {{ $episode->number }}:</span>
+                                                                                <span
+                                                                                    class="text-white">{{ $episode->title }}</span>
+                                                                            </div>
+                                                                            <a href="{{ route('website.seasons.episodes.show', [
+                                                                                'season_slug' => $season->slug,
+                                                                                'episode_slug' => $episode->slug,
+                                                                            ]) }}"
+                                                                                class="bg-primary text-white border-none"
+                                                                                style="width: 50px; height: 40px;border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                                                <i class="ph ph-play"></i>
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
                                                                 </a>
-                                                                <div class="card-body d-flex flex-column justify-content-end p-3"
-                                                                    style="background: rgba(0,0,0,0.7); border-radius: 0 0 .5rem .5rem;">
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-between">
-                                                                        <div>
-                                                                            <span class="fw-medium text-white">Episode
-                                                                                {{ $episode->number }}:</span>
-                                                                            <span
-                                                                                class="text-white">{{ $episode->title }}</span>
-                                                                        </div>
-                                                                        <a href="{{ route('website.seasons.episodes.show', [
-                                                                            'season_slug' => $season->slug,
-                                                                            'episode_slug' => $episode->slug,
-                                                                        ]) }}"
-                                                                            class="bg-primary text-white border-none"
-                                                                            style="width: 50px; height: 40px;border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                                                            <i class="ph ph-play"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     @endforeach
