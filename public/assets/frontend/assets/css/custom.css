@@ -9091,3 +9091,16 @@ i.placeholder-icon {
     background-color: var(--bs-primary-light-version);
     color: var(--bs-black);
 }
+
+/*mobile sm style*/
+@media (max-width: 767.98px) {
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem;
+    }
+    .navbar-brand img.logo {
+        height: auto !important;
+        padding: 1em 0 !important;
+        width: 4.375em !important;
+        object-fit: contain !important;
+    }
+}

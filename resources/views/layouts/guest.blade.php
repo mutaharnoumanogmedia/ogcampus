@@ -111,7 +111,7 @@
                                             alt="streamit" />
                                     </a>
                                 </div>
-                                
+
                                 {{-- <div>
                                     <a href="{{ asset('frontend') }}/pricing-plan.html"
                                         class="subscribe-btn btn btn-warning-subtle py-1 py-md-2 px-2 px-ms-3">
@@ -132,8 +132,8 @@
                                         <div class="logo-default">
                                             <a class="navbar-brand text-primary me-0" href="{{ url('/') }}">
                                                 <img class="img-fluid logo"
-                                                    src="{{ asset('frontend') }}/assets/images/logo.png"
-                                                    loading="lazy" alt="streamit" />
+                                                    src="{{ asset('logo-w.webp') }}" loading="lazy"
+                                                    alt="streamit" />
                                             </a>
                                         </div>
                                     </div>
@@ -311,9 +311,30 @@
                                                 Help Center
                                             </a>
                                         </li>
-                                     
+
                                     </ul>
                                 </li>
+                                @guest
+                                    <li class="nav-item">
+                                        <a href="{{ route('login') }}" class="nav-link">
+
+                                            <span class="fw-medium">Login</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('register') }}" class="nav-link ">
+
+                                            <span class="fw-medium">Register</span>
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a href="{{ route('logout') }}" class="nav-link  ">
+                                            <i class="ph ph-sign-out"></i>
+                                            <span class="fw-medium">Logout</span>
+                                        </a>
+                                    </li>
+                                @endguest
                                 </ul>
                             </div>
                         </nav>
@@ -321,7 +342,7 @@
                         <div class="css_prefix-header-right d-flex align-items-center gap-2">
                             <ul
                                 class="list-inline d-flex align-items-center gap-3 gap-md-4 mb-0 ps-0 justify-content-md-end justify-content-between">
-                                <li class="nav-item dropdown iq-responsive-menu d-xl-block d-none">
+                                <li class="nav-item dropdown iq-responsive-menu ">
                                     <div class="d-flex justify-content-end gap-2 px-3 py-2">
                                         <a href="{{ route('lang.switch', 'en') }}"
                                             class="btn btn-sm btn-outline-primary {{ app()->getLocale() === 'en' ? 'active' : '' }}">
@@ -333,7 +354,7 @@
                                         </a>
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown iq-responsive-menu d-xl-block d-none">
+                                <li class="nav-item dropdown iq-responsive-menu ">
                                     <div class="search-box">
                                         <a href="#" class="nav-link p-0 text-white" id="search-drop"
                                             data-bs-toggle="dropdown">
@@ -378,14 +399,14 @@
                                     </a>
                                 </li> --}}
                                 @guest
-                                    <li class="ms-3 nav-item d-flex align-items-center  ">
+                                    <li class="ms-3 nav-item d-flex align-items-center d-md-block d-none ">
                                         <a href="{{ route('login') }}"
                                             class="nav-link link-body-emphasis font-size-14  btn btn-primary">
                                             <i class="ph ph-sign-in"></i>
                                             <span class="fw-medium">Login</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item d-flex align-items-center gap-2">
+                                    <li class="nav-item d-flex align-items-center gap-2 d-md-block d-none">
                                         <a href="{{ route('register') }}"
                                             class="nav-link link-body-emphasis font-size-14 btn btn-outline-primary">
                                             <i class="ph ph-user-plus"></i>
@@ -781,7 +802,7 @@
         </div>
     </footer>
 
-   
+
     <div id="back-to-top" class="back-to-top" style="display: none">
         <a class="p-0 btn bg-primary btn-sm position-fixed top border-0 rounded-circle text-white" id="top"
             href="#top">
