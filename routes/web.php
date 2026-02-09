@@ -41,6 +41,8 @@ Route::get('/browse/category/{slug}', [WebsiteController::class, 'browseCategory
 Route::get('/creators', [WebsiteController::class, 'creators'])->name('website.creators');
 Route::get('/creators/{id}', [WebsiteController::class, 'creatorDetail'])->name('website.creator.detail');
 
+Route::get('/purchase/series/{series_slug}', [WebsiteController::class, 'purchaseSeries'])->name('website.purchase.series');
+
 
 
 

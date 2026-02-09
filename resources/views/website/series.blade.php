@@ -7,6 +7,7 @@
 
 
     <x-guest-layout>
+
         <div class="poition-relative">
             <div class="iq-main-slider site-video position-relative">
                 <video id="my-video" poster="{{ $series->banner_path ?? '' }}"
@@ -35,7 +36,7 @@
                         <!-- Movie Description Start-->
                         <ul class="p-0 mb-2 list-inline d-flex flex-wrap movie-tag">
                             <li class="trending-list"><a class=""
-                                    href="./view-all-movie.html">{{ $series->genre->name }}</a></li>
+                                    href="{{ route('website.browse.genre', ['slug' => $series->genre->slug]) }}">{{ $series->genre->name }}</a></li>
 
                         </ul>
                         <div class="d-block d-lg-flex align-items-center">
@@ -107,10 +108,13 @@
                         <div class="d-flex align-items-center flex-wrap gap-3 gap-md-4 my-5">
                             @if ($series->access_level == 'subscriber')
                                 <div class="iq-play-button iq-button">
-                                    <a href="pricing-plan.html"
+                                    <a href="{{ route('website.purchase.series', ['series_slug' => $series->slug]) }}"
                                         class="btn btn-primary w-100 rounded d-flex align-items-center justify-content-center gap-2 lh-1">
                                         <span><i class="ph-fill ph-crown fs-6"></i></span>
-                                        <span>Subscribe to Watch</span>
+                                        <span>
+                                            {{ __('purchase_to_watch') }}
+                                            <i class="ph ph-arrow-right"></i>
+                                        </span>
                                     </a>
                                 </div>
                             @else
@@ -433,37 +437,8 @@
                                             @if ($season->episodes && count($season->episodes))
                                                 <div class="row g-3">
                                                     @foreach ($season->episodes as $episode)
-                                                        <div class="col-12 col-md-6 col-lg-3">
-                                                            <div class="card border-0 shadow-sm episode-card position-relative"
-                                                                style="background: url('{{ $episode->thumbnail_path }}') center center/cover no-repeat; height:  350px ; border-radius: .5rem .5rem  ;">
-                                                                <a
-                                                                    href="{{ route('website.seasons.episodes.show', [
-                                                                        'season_slug' => $season->slug,
-                                                                        'episode_slug' => $episode->slug,
-                                                                    ]) }}">
-
-                                                                    <div class="card-body d-flex flex-column justify-content-end p-3"
-                                                                        style="background: linear-gradient(to top, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.1) 100%); border-radius: .5rem .5rem;">
-                                                                        <div
-                                                                            class="d-flex align-items-center justify-content-between">
-                                                                            <div>
-                                                                                <span class="fw-medium text-white">Episode
-                                                                                    {{ $episode->number }}:</span>
-                                                                                <span
-                                                                                    class="text-white">{{ $episode->title }}</span>
-                                                                            </div>
-                                                                            <a href="{{ route('website.seasons.episodes.show', [
-                                                                                'season_slug' => $season->slug,
-                                                                                'episode_slug' => $episode->slug,
-                                                                            ]) }}"
-                                                                                class="bg-primary text-white border-none"
-                                                                                style="width: 50px; height: 40px;border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                                                                <i class="ph ph-play"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
+                                                        <div class="col-12 col-md-3 col-lg-2">
+                                                            <x-episode-item :episode="$episode" />
                                                         </div>
                                                     @endforeach
                                                 </div>

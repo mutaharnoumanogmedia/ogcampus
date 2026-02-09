@@ -209,14 +209,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="close-icon-section">
+                                        {{-- <div class="close-icon-section">
                                             <div class="position-absolute d-flex align-items-center justify-content-center iq-watching-close-icon"
                                                 data-bs-toggle="tooltip" data-bs-placement="left"
                                                 aria-label="Remove from list"
                                                 data-bs-original-title="Remove from list">
                                                 <i class="ph ph-x font-size-14 fw-bold align-middle"></i>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </li>
@@ -279,7 +279,7 @@
                                                 </div>
                                                 <div
                                                     class="d-flex align-items-center justify-content-center gap-2 mt-3">
-                                                    <a href="./watchlist-detail.html"
+                                                    <a href="javascript:void(0)"
                                                         class="d-flex align-items-center justify-content-center flex-shrink-0 border-0 add-to-wishlist-btn btn btn-secondary"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         data-bs-custom-class="custom-tooltip"
@@ -358,17 +358,19 @@
                                                 </div>
                                                 <div
                                                     class="d-flex align-items-center justify-content-center gap-2 mt-3">
-                                                    <a href="{{ route('website.creator.detail', $creator->id) }}"
+                                                    {{-- <a href="{{ route('website.creator.detail', $creator->id) }}"
                                                         class="d-flex align-items-center justify-content-center flex-shrink-0 border-0 add-to-wishlist-btn btn btn-secondary"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         data-bs-custom-class="custom-tooltip"
                                                         data-bs-title="Add to Watchlist">
                                                         <i class="ph ph-plus font-size-18"></i>
-                                                    </a>
+                                                    </a> --}}
                                                     <div class="iq-play-button iq-button">
                                                         <a href="{{ route('website.creator.detail', $creator->id) }}"
-                                                            class="btn btn-primary w-100">Play
-                                                            Now</a>
+                                                            class="btn btn-primary w-100">
+                                                        {{ __('discover_more') }}
+                                                        <i class="ph ph-arrow-right"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

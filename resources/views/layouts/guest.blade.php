@@ -81,6 +81,9 @@
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/vendor/streamit-font/iconly.css" />
 
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/custom.css?{{ time() }}">
+    @if (env('APP_ENV') == 'local')
+        @vite('')
+    @endif
 </head>
 
 <body class="custom-header-relative">
@@ -89,8 +92,7 @@
     <!-- loader Start -->
     <div class="loader simple-loader">
         <div class="loader-body">
-            <img src="{{ asset('/logo-w.webp') }}" alt="loader" class="img-fluid"
-                width="300" />
+            <img src="{{ asset('/logo-w.webp') }}" alt="loader" class="img-fluid" width="300" />
         </div>
     </div>
     <!-- loader END -->
@@ -109,28 +111,8 @@
                                             alt="streamit" />
                                     </a>
                                 </div>
-                                <div class="logo-hotstar">
-                                    <a class="navbar-brand text-primary me-0" href="{{ url('/') }}">
-                                        <img class="img-fluid logo"
-                                            src="{{ asset('frontend') }}/assets/images/logo-hotstar.webp"
-                                            loading="lazy" alt="streamit" />
-                                    </a>
-                                </div>
-                                <div class="logo-prime">
-                                    <a class="navbar-brand text-primary me-0" href="{{ url('/') }}">
-                                        <img class="img-fluid logo"
-                                            src="{{ asset('frontend') }}/assets/images/logo-prime.webp" loading="lazy"
-                                            alt="streamit" />
-                                    </a>
-                                </div>
-                                <div class="logo-hulu">
-                                    <a class="navbar-brand text-primary me-0" href="{{ url('/') }}">
-                                        <img class="img-fluid logo"
-                                            src="{{ asset('frontend') }}/assets/images/logo-hulu.webp" loading="lazy"
-                                            alt="streamit" />
-                                    </a>
-                                </div>
-                                <div>
+                                
+                                {{-- <div>
                                     <a href="{{ asset('frontend') }}/pricing-plan.html"
                                         class="subscribe-btn btn btn-warning-subtle py-1 py-md-2 px-2 px-ms-3">
                                         <span class="d-flex align-items-center gap-2 text-warning">
@@ -138,7 +120,7 @@
                                             <span class="d-xl-block d-none">{{ __('subscribe') }}</span>
                                         </span>
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <!-- Horizontal Menu Start -->
@@ -265,7 +247,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="collapse" href="#community" role="button"
                                         aria-expanded="false" aria-controls="community">
                                         <div class="d-flex justify-content-between">
@@ -297,7 +279,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="collapse" href="#account" role="button"
                                         aria-expanded="false" aria-controls="account">
@@ -321,7 +303,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ asset('frontend') }}/subscription.html">
-                                                Subscription
+                                                Purchases
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -329,11 +311,7 @@
                                                 Help Center
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ asset('frontend') }}/logout.html">
-                                                Logout
-                                            </a>
-                                        </li>
+                                     
                                     </ul>
                                 </li>
                                 </ul>
@@ -391,14 +369,14 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link shoping-cart-button text-white" href="javascript:void(0);"
                                         data-bs-toggle="offcanvas" data-bs-target="#shoping-cart-toggle"
                                         aria-controls="shoping-cart-toggle" aria-label="Open shopping cart">
                                         <i class="ph ph-bag p-0"></i>
                                         <span class="bg-primary text-white shopping-badge">0</span>
                                     </a>
-                                </li>
+                                </li> --}}
                                 @guest
                                     <li class="ms-3 nav-item d-flex align-items-center  ">
                                         <a href="{{ route('login') }}"
@@ -541,7 +519,7 @@
             </nav>
         </header>
 
-        <div class="offcanvas overflow-y-auto widget-shopping-cart-content offcanvas-end offcanvas-sidebar sidebar-container on-rtl end border-0"
+        {{-- <div class="offcanvas overflow-y-auto widget-shopping-cart-content offcanvas-end offcanvas-sidebar sidebar-container on-rtl end border-0"
             tabindex="-1" id="shoping-cart-toggle">
             <div class="offcanvas-header position-relative">
                 <h5 class="offcanvas-title fw-500" id="offcanvasExampleLabel">
@@ -617,7 +595,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!--Nav End-->
 
         <!--bread-crumb-->
@@ -634,8 +612,8 @@
                             <!--Logo -->
                             <div class="logo-default">
                                 <a class="navbar-brand text-primary me-0" href="{{ url('/') }}">
-                                    <img class="img-fluid logo" src="{{ asset('/logo-w.webp') }}"
-                                        loading="lazy" alt="streamit">
+                                    <img class="img-fluid logo" src="{{ asset('/logo-w.webp') }}" loading="lazy"
+                                        alt="streamit">
                                 </a>
                             </div>
 
@@ -803,108 +781,7 @@
         </div>
     </footer>
 
-    <div class="rtl-box">
-        <a class="btn btn-icon btn-setting" id="settingbutton" data-bs-toggle="offcanvas"
-            data-bs-target="#live-customizer" role="button" aria-controls="live-customizer">
-            <i class="ph ph-gear-six fs-5 text-white"></i>
-        </a>
-        <div class="offcanvas offcanvas-end live-customizer on-rtl end" tabindex="-1" id="live-customizer"
-            data-bs-scroll="true" data-bs-backdrop="false" aria-labelledby="live-customizer-label" aria-modal="true"
-            role="dialog">
-            <div class="offcanvas-header gap-3 justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h5 class="offcanvas-title text-dark" id="live-customizer-label">
-                        Live Customizer
-                    </h5>
-                </div>
-                <div class="d-flex gap-1 align-items-center">
-                    <button class="btn btn-icon text-primary" data-reset="settings" data-bs-toggle="tooltip"
-                        data-bs-placement="left" aria-label="Reset All Settings"
-                        data-bs-original-title="Reset All Settings">
-                        <span class="btn-inner">
-                            <i class="ph-fill ph-arrows-clockwise fs-5"></i>
-                        </span>
-                    </button>
-                    <button type="button" class="btn btn-icon btn-close px-0 text-reset shadow-none text-dark"
-                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-            </div>
-            <div class="offcanvas-body pt-0">
-                <div class="modes row row-cols-2 gx-2">
-                    <div class="col">
-                        <div data-setting="attribute" class="text-center w-100">
-                            <input type="radio" value="ltr" class="btn-check" name="theme_scheme_direction"
-                                data-prop="dir" id="theme-scheme-direction-ltr" checked />
-                            <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-direction-ltr">
-                                LTR
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div data-setting="attribute" class="text-center w-100">
-                            <input type="radio" value="rtl" class="btn-check" name="theme_scheme_direction"
-                                data-prop="dir" id="theme-scheme-direction-rtl" />
-                            <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-direction-rtl">
-                                RTL
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="modes mt-3">
-                    <div class="color-customizer mb-3">
-                        <h6 class="mb-0 title-customizer">
-                            Color Customizer
-                        </h6>
-                    </div>
-                    <div class="row row-cols-2 gx-2">
-                        <div class="col mb-3">
-                            <div data-setting="attribute" class="text-center w-100">
-                                <input type="radio" value="dark" class="btn-check" name="theme_style_appearance"
-                                    data-prop="data-bs-theme" id="theme-scheme-color-netflix"
-                                    data-colors='{"primary": "#e50914", "secondary": "#adafb8", "tertiray": "#adafb8"}'
-                                    checked />
-                                <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-netflix">
-                                    Netflix
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col mb-3">
-                            <div data-setting="attribute" class="text-center w-100">
-                                <input type="radio" value="hotstar" class="btn-check"
-                                    name="theme_style_appearance" data-prop="data-bs-theme"
-                                    id="theme-scheme-color-hotstar"
-                                    data-colors='{"primary": "#0959E4", "secondary": "#adafb8", "tertiray": "#EA4335"}' />
-                                <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-hotstar">
-                                    Hotstar
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div data-setting="attribute" class="text-center w-100">
-                                <input type="radio" value="amazonprime" class="btn-check"
-                                    name="theme_style_appearance" data-prop="data-bs-theme"
-                                    id="theme-scheme-color-prime"
-                                    data-colors='{"primary": "#1A98FF", "secondary": "#adafb8", "tertiray": "#89F425"}' />
-                                <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-prime">
-                                    Prime
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div data-setting="attribute" class="text-center w-100">
-                                <input type="radio" value="hulu" class="btn-check" name="theme_style_appearance"
-                                    data-prop="data-bs-theme" id="theme-scheme-color-hulu"
-                                    data-colors='{"primary": "#3ee783", "secondary": "#adafb8", "tertiray": "#0E0E0E"}' />
-                                <label class="btn dir-btn cutomizer-button w-100" for="theme-scheme-color-hulu">
-                                    Hulu
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <div id="back-to-top" class="back-to-top" style="display: none">
         <a class="p-0 btn bg-primary btn-sm position-fixed top border-0 rounded-circle text-white" id="top"
             href="#top">

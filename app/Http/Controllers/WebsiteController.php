@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Episode;
 use App\Models\Series;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
-
-
     /**
      * Display the homepage
      */
@@ -33,6 +30,7 @@ class WebsiteController extends Controller
             ->take(4)
             ->get();
         $creators = User::role('creator')->inRandomOrder()->take(10)->get();
+
         return view('website.index', compact('hotEpisodes', 'exclusiveSeries', 'featuredSeries', 'creators'));
     }
 
@@ -41,15 +39,15 @@ class WebsiteController extends Controller
         $series = Series::published()
             ->orderBy('title')
             ->get();
+
         return view('website.series', compact('series'));
     }
-
-
 
     public function browseGenres()
     {
         // Assuming you have a Genre model, otherwise return a placeholder.
         $genres = \App\Models\Genre::orderBy('name')->get();
+
         return view('website.browse_genres', compact('genres'));
     }
 
@@ -63,6 +61,7 @@ class WebsiteController extends Controller
             ->where('status', 'published')
             ->orderBy('title')
             ->get();
+
         return view('website.browse_genre', compact('genre', 'series'));
     }
 
@@ -75,10 +74,9 @@ class WebsiteController extends Controller
             ->where('status', 'published')
             ->with(['seasons.episodes', 'genre', 'creator'])
             ->firstOrFail();
+
         return view('website.series', compact('series'));
     }
-
-
 
     /**
      * Show a list of all seasons.
@@ -90,6 +88,7 @@ class WebsiteController extends Controller
             ->whereNotNull('published_at')
             ->orderBy('season_number')
             ->get();
+
         return view('website.seasons', compact('seasons'));
     }
 
@@ -150,6 +149,7 @@ class WebsiteController extends Controller
     {
         // Assuming you have a Category model.
         $categories = \App\Models\Category::orderBy('name')->get();
+
         return view('website.browse_categories', compact('categories'));
     }
 
@@ -161,16 +161,17 @@ class WebsiteController extends Controller
         // Assuming you have a Category and a Movie model (or similar).
         $category = \App\Models\Category::where('slug', $slug)->firstOrFail();
         $movies = $category->movies()->orderBy('title')->get();
+
         return view('website.browse_category', compact('category', 'movies'));
     }
-
 
     /**
      * Show a list of all creators.
      */
     public function creators()
     {
-        $creators = User::role('creator')->with("creatorProfile")->orderBy('name')->get();
+        $creators = User::role('creator')->with('creatorProfile')->orderBy('name')->get();
+
         return view('website.creators', compact('creators'));
     }
 
@@ -179,8 +180,15 @@ class WebsiteController extends Controller
      */
     public function creatorDetail($id)
     {
-        $creator = User::role('creator')->with("creatorProfile", "createdSeries")->where('id', $id)->firstOrFail();
+        $creator = User::role('creator')->with('creatorProfile', 'createdSeries')->where('id', $id)->firstOrFail();
 
-        return view('website.creator-detail', compact('creator',   'id'));
+        return view('website.creator-detail', compact('creator', 'id'));
+    }
+
+    public function purchaseSeries($series_slug)
+    {
+        $series = Series::where('slug', $series_slug)->firstOrFail();
+
+        return view('website.purchase-series', compact('series'));
     }
 }
