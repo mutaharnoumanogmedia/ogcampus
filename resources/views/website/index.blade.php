@@ -37,11 +37,7 @@
                                                         </li>
                                                     </ul>
                                                 </div> --}}
-                                                {{-- <span class="d-flex align-items-center gap-1">
-                                                    <span class="">5</span><img
-                                                        src="{{ asset('frontend') }}/assets/images/pages/imdb-logo.svg"
-                                                        alt="imdb logo" class="img-fluid imdb-img" />
-                                                </span> --}}
+                                              
                                                 <span
                                                     class="badge rounded-2 text-white bg-secondary font-size-12">NC-17</span>
                                                 <div class="d-flex align-items-center gap-1">
@@ -433,11 +429,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="d-flex gap-2 align-items-center">
-                                <span>5 </span>
-                                <img src="{{ asset('frontend') }}/assets/images/pages/imdb-logo.svg" alt="imdb logo"
-                                    class="img-fluid" />
-                            </div>
+                            
                             <div class="d-flex align-items-center gap-1">
                                 <i class="ph ph-clock"></i>
                                 <span class="">2h : 30m</span>

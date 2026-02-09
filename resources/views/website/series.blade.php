@@ -80,19 +80,7 @@
                                 </div>
                             </li>
 
-                            <!-- Movie IMDP Rating  -->
-                            <li>
-                                <span class="d-flex align-items-center gap-1">
-                                    <span class="fw-medium">
-                                        <span>
-                                            {{ $series->imdb_rating ?? '7' }} </span>
-                                        <span class="imdb-logo ms-1">
-                                            <img src="./assets/images/pages/imdb-logo.svg" loading="lazy" decoding="async"
-                                                alt="imdb logo" class="img-fluid imdb-logo1">
-                                        </span>
-                                    </span>
-                                </span>
-                            </li>
+                           
 
                             <!-- Movie Censor Rating -->
                             <li>
