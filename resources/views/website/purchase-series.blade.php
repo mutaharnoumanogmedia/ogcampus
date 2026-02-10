@@ -196,75 +196,42 @@
                             </table>
                             <div class="checkout-payment mt-4">
                                 <div class="payment-box border-bottom mb-4 pt-4 p-3">
-                                    <div class="accordion" id="accordionPayment">
-                                        <div class="accordion-item-payment">
-                                            <h6 class="accordion-header" id="payment-1">
-                                                <div class="accordion-button-payment" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOnepayment" aria-expanded="true"
-                                                    aria-controls="collapseOnepayment">
-                                                    <span class="form-check">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault1"
-                                                            checked="checked">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                            Direct bank transfer
-                                                        </label>
-                                                    </span>
-                                                </div>
-                                            </h6>
-                                            <div id="collapseOnepayment" class="accordion-collapse collapse show"
-                                                data-bs-parent="#accordionPayment">
-                                                <div class="accordion-body">
-                                                    Make your payment directly into our bank account. Please use your
-                                                    Order ID as the payment reference. Your order will not be shipped
-                                                    until the funds have cleared in our account.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item-payment">
-                                            <h6 class="accordion-header" id="payment-2">
-                                                <div class="accordion-button-payment collapsed"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwopayment"
-                                                    aria-expanded="false" aria-controls="collapseTwopayment">
-                                                    <span class="form-check">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault2">
-                                                        <label class="form-check-label" for="flexRadioDefault2">
-                                                            Check payments
-                                                        </label>
-                                                    </span>
-                                                </div>
-                                            </h6>
-                                            <div id="collapseTwopayment" class="accordion-collapse collapse"
-                                                aria-labelledby="payment-2" data-bs-parent="#accordionPayment">
-                                                <div class="accordion-body">
-                                                    Please send a check to Store Name, Store Street, Store Town, Store
-                                                    State / County, Store Postcode.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item-payment">
-                                            <h6 class="accordion-header" id="payment-3">
-                                                <div class="accordion-button-payment collapsed"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseThreepayment"
-                                                    aria-expanded="false" aria-controls="collapseThreepayment">
-                                                    <span class="form-check">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault3">
-                                                        <label class="form-check-label" for="flexRadioDefault3">
-                                                            Cash on delivery
-                                                        </label>
-                                                    </span>
-                                                </div>
-                                            </h6>
-                                            <div id="collapseThreepayment" class="accordion-collapse collapse"
-                                                aria-labelledby="payment-3" data-bs-parent="#accordionPayment">
-                                                <div class="accordion-body">
-                                                    Pay with cash upon delivery.
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="payment-methods">
+                                    <h6 class="mb-3 fw-bold">Select Payment Method</h6>
+                                    <div class="d-flex flex-column gap-3">
+
+                                        <label class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment_method" value="credit_card" class="me-2" checked>
+                                            <img src="https://cdn-icons-png.flaticon.com/512/6963/6963703.png" alt="Credit Card" width="32" height="20" style="object-fit:contain;">
+                                            <span>Credit Card</span>
+                                        </label>
+
+                                        <label class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment_method" value="apple_pay" class="me-2">
+                                            <img src="https://p7.hiclipart.com/preview/123/106/539/logo-apple-icon-information-apple-logo-png.jpg" alt="Apple Pay" width="22" height="22" style="object-fit:contain;">
+                                            <span>Apple Pay</span>
+                                        </label>
+
+                                        <label class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment_method" value="google_pay" class="me-2">
+                                            <img src="https://9to5google.com/?attachment_id=494503" alt="Google Pay" width="22" height="22" style="object-fit:contain;">
+                                            <span>Google Pay</span>
+                                        </label>
+
+                                        <label class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment_method" value="paypal" class="me-2">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="Paypal" width="32" height="20" style="object-fit:contain;">
+                                            <span>Paypal</span>
+                                        </label>
+
+                                        <label class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment_method" value="revolut_pay" class="me-2">
+                                            <img src="https://ibsintelligence.com/wp-content/uploads/2021/10/ibs_Revolut-300x300.jpg" alt="Revolut Pay" width="24" height="24" style="object-fit:contain;">
+                                            <span>Revolut Pay</span>
+                                        </label>
+
                                     </div>
+                                </div>
                                 </div>
                                 <p class="mb-3 p-3 pb-0">
                                     Your personal data will be used to process your order, support your experience
