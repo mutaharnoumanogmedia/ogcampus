@@ -84,11 +84,11 @@
                                     class="text-primary">*</span></label>
                             <select class="select2-basic-single js-states form-control"
                                 aria-label="Default select example">
-                                <option selected>India</option>
-                                <option value="1">United Kingdom</option>
+                                <option selected>Germany</option>
+                                <option value="1">Switzerland</option>
                                 <option value="2">United States</option>
-                                <option value="3">Australia</option>
-                                <option value="1">North Corea</option>
+                                <option value="3">Austria</option>
+                                <option value="1">Italy</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -111,11 +111,11 @@
                                     class="text-primary">*</span></label>
                             <select class="select2-basic-single js-states form-control"
                                 aria-label="Default select example" id="state">
-                                <option selected>Colorado</option>
-                                <option value="2">Alaska</option>
-                                <option value="1">Hawai</option>
-                                <option value="3">Texas</option>
-                                <option value="1">Washington</option>
+                                <option selected>Berlin</option>
+                                <option value="2">Hamburg</option>
+                                <option value="1">Munich</option>
+                                <option value="3">Cologne</option>
+                                <option value="1">Frankfurt</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -161,58 +161,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="cart_item">
-                                        <td class="product-name">
-                                            <div class="text d-flex align-items-center gap-1">
-                                                <span class="text-body">Bag Pack</span>
-                                                <span class="font-size-12">&nbsp;x</span>
-                                                <strong class="text-white  fw-bold">&nbsp;1</strong>
-                                            </div>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="Price-amount"><bdi
-                                                    class="text-body"><span>$</span>28.00</bdi></span>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="product-name">
-                                            <div class="text d-flex align-items-center gap-1">
-                                                <span class="text-body">Cartoon Character</span>
-                                                <span class="font-size-12">&nbsp;x</span>
-                                                <strong class="text-white  fw-bold">&nbsp;1</strong>
-                                            </div>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="Price-amount"><bdi
-                                                    class="text-body"><span>$</span>25.00</bdi></span>
-                                        </td>
-                                    </tr>
-                                    <tr class="cart_item">
-                                        <td class="product-name">
-                                            <div class="text  d-flex align-items-center gap-1">
-                                                <span class="text-body">Boxing Gloves</span>
-                                                <span class="font-size-12">&nbsp;x</span>
-                                                <strong class="text-white  fw-bold">&nbsp;1</strong>
-                                            </div>
-                                        </td>
-                                        <td class="product-total">
-                                            <span class="Price-amount"><bdi
-                                                    class="text-body"><span>$</span>18.00</bdi></span>
-                                        </td>
-                                    </tr>
+                                   
+                                        <tr class="cart_item">
+                                            <td class="product-name">
+                                                <div class="text d-flex align-items-center gap-1">
+                                                    <span class="text-body">{{ $series->title }}</span>
+                                                    <span class="font-size-12">&nbsp;x</span>
+                                                    <strong class="text-white  fw-bold">&nbsp;1</strong>
+                                                </div>
+                                            </td>
+                                            <td class="product-total">
+                                                <span class="Price-amount"><bdi class="text-body"><span>€</span>
+                                                        {{ $series->price }}</bdi></span>
+                                            </td>
+                                        </tr>
+                                     
+
 
                                 </tbody>
                                 <tfoot>
                                     <tr class="">
                                         <td class="p-3 fw-bold font-size-18 border-0">Subtotal</td>
                                         <td class="p-3 fw-bold border-0">
-                                            <span class="mb-0 text-body">$71.00</span>
+                                            <span class="mb-0 text-body">€{{ $series->price }}</span>
                                         </td>
                                     </tr>
                                     <tr class="">
                                         <td class="p-3 fw-bold font-size-18 border-0">Total</td>
                                         <td class="p-3 fw-bold border-0">
-                                            <span class="mb-0">$71.00</span>
+                                            <span class="mb-0">€{{ $series->price }}</span>
                                         </td>
                                     </tr>
                                 </tfoot>

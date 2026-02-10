@@ -15,6 +15,7 @@ class Series extends Model
         'creator_id',
         'genre_id',
         'title',
+        'price',
         'slug',
         'tagline',
         'description',
@@ -47,6 +48,7 @@ class Series extends Model
         'approved_at' => 'datetime',
         'published_at' => 'datetime',
         'series_total_duration' => 'integer',
+        'price' => 'decimal:2',
     ];
 
     public function creator()
